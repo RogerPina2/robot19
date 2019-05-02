@@ -117,24 +117,26 @@ if ! shopt -oq posix; then
 fi
 
 
-# Quinto Semestre Comp.
-export IPBerry=192.168.0.110 
+# 3.o Semestre Comp.
+export IPBerry=192.168.0.110
+# CANCELE  com # as linhas ROS_MASTER_URI  e ROS_IP se estiver usando com Gazebo, Sphinx ou Bebop
 export ROS_MASTER_URI="http://"$IPBerry":11311" 
 export ROS_IP=`hostname -I`
 export TURTLEBOT3_MODEL=burger 
 
-export LD_LIBRARY_PATH=/home/borg/intelFPGA_lite/17.1/modelsim_ase/lib32
 export ALTERAPATH=~/intelFPGA_lite/17.1
 export PATH=$PATH:${ALTERAPATH}/quartus/bin
 export PATH=$PATH:${ALTERAPATH}/modelsim_ase/linuxaloem/
 export VUNIT_MODELSIM_PATH=${ALTERAPATH}/modelsim_ase/linuxaloem/
 export VUNIT_SIMULATOR=modelsim
-export QSYS_ROOTDIR="/home/borg/intelFPGA_lite/17.1/quartus/sopc_builder/bin"
-export GOOGLE_APPLICATION_CREDENTIALS=/home/borg/.local/share/elementos/elementos.json
+export QSYS_ROOTDIR="~/intelFPGA_lite/17.1/quartus/sopc_builder/bin"
+export GOOGLE_APPLICATION_CREDENTIALS=~/.local/share/elementos/elementos.json
 
 source /opt/ros/melodic/setup.bash
 source ~/catkin_ws/devel/setup.bash
 export TURTLEBOT3_MODEL=waffle_pi
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/ros/melodic/lib/parrot_arsdk/
 
-export PYTHONPATH=/usr/local/python:/usr/lib/python:$PYTHONPATH
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/ros/melodic/lib/parrot_arsdk/:${ALTERAPATH}/modelsim_ase/lib32
+
+export PYTHONPATH=/usr/local/python:/usr/lib/python:$PYTHONPATH:
+
